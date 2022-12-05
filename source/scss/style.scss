@@ -1,0 +1,899 @@
+@import "nullstyle.scss";
+
+
+/* подключение_нулевых стилей */
+
+/* Шрифты */
+@font-face {
+    font-family: 'Poppins';
+    src        : url('/source/fonts/poppins/Poppins-Bold.woff2') format('woff2'),
+        url('/source/fonts/poppins/Poppins-Bold.woff') format('woff');
+    font-weight : bold;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src        : url('/source/fonts/poppins/Poppins-Medium.woff2') format('woff2'),
+        url('/source/fonts/poppins/Poppins-Medium.woff') format('woff');
+    font-weight : 500;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src        : url('/source/fonts/poppins/Poppins-Regular.woff2') format('woff2'),
+        url('/source/fonts/poppins/Poppins-Regular.woff') format('woff');
+    font-weight : normal;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src        : url('/source/fonts/poppins/Poppins-SemiBold.woff2') format('woff2'),
+        url('/source/fonts/poppins/Poppins-SemiBold.woff') format('woff');
+    font-weight : 600;
+    font-style  : normal;
+    font-display: swap;
+}
+
+/* Шрифты_конец */
+//
+.shadow-white{
+    box-shadow: 0px 0px 20px 10px #00bec9;
+}
+/* Шаблоны */
+
+$colorYellowDark:#daac00;
+$colorBeresa    :#00bec9;
+$colorYellow    :#fcc302;
+$colorWhite     :#fff;
+
+////
+html {}
+
+@media (min-width:23.4375em)and(max-width:36em) {
+    html {
+        font-size: 12.5px;
+    }
+}
+
+body {
+    background-color: #333;
+    min-width       : 375px;
+    height          : 15555px;
+    font-family     : "Poppins", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.header {
+    padding: 0 25px;
+
+    min-height      : calc(121/14*1rem);
+    height          : calc(121/14*1rem);
+    display         : flex;
+    background-color: #daac00;
+
+    &__contain {
+
+        align-self: center;
+        display   : flex;
+        min-height: calc(52/14*1rem);
+        height    : calc(52/14*1rem);
+        max-width : calc(1159/14*1rem);
+        width     : 100%;
+        margin    : 0 auto;
+
+    }
+
+    &__logo {
+        max-height: 100%;
+        flex-basis: 22%;
+        flex-grow : 1;
+
+        img {
+            height: 100%;
+            cursor: pointer;
+
+        }
+    }
+
+
+    &__menu {
+        height   : 100%;
+        flex-grow: 1;
+
+        display        : flex;
+        justify-content: space-between;
+    }
+
+
+}
+
+.menu {
+    display: flex;
+
+
+    &__body {
+
+        display  : flex;
+        height   : 100%;
+        width    : 100%;
+        flex-grow: 1;
+
+
+    }
+
+    &__list {
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+
+        li {
+            flex        : 1 1 25%;
+            margin-right: 40px;
+        }
+    }
+
+    &__link {
+        color      : $colorWhite;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size  : 2.0857rem;
+    }
+
+    &__search {}
+
+}
+
+.search {
+
+    display        : flex;
+    width          : 24%;
+    justify-content: flex-end;
+
+    &__text {
+        font-family: "Poppins", sans-serif;
+        font-size  : calc(20.8/14*1rem);
+        width      : 74%;
+    }
+
+    &__loopIcon {
+        background-color: $colorBeresa;
+        width           : calc(71/14*1rem);
+        position        : relative;
+
+        &::before {
+            content   : "";
+            display   : block;
+            position  : absolute;
+            background: url("/img/icon/iconLoop.png") 50% 50%/45% 60% no-repeat;
+            width     : 100%;
+            height    : 100%;
+            cursor    : pointer;
+        }
+    }
+}
+
+
+@media (min-width:70.626em) {}
+
+@media (max-width:36em) {
+    .header {
+        position: fixed;
+        top     : 0;
+        left    : 0;
+        width   : 100%;
+        z-index : 100;
+    }
+
+    main {
+        padding-top: 67px;
+    }
+}
+
+@media (max-width:70.625em) {
+    .header {
+        min-height: calc(75/14*1rem);
+        height    : calc(75/14*1rem);
+    }
+
+    .header__contain {
+        column-gap: 1rem;
+    }
+
+    .header__logo {
+        display    : flex;
+        align-items: center;
+
+        img {
+            height: 70%;
+        }
+    }
+
+    .search {
+        flex           : 1 1 70%;
+        justify-content: center;
+        align-items    : center;
+
+    }
+
+    .header__logo {
+        flex: 1 1 20%;
+    }
+
+    .menu {
+        flex-basis     : 10%;
+        order          : 2;
+        display        : flex;
+        justify-content: center;
+    }
+
+    .menu__icon {
+        align-self: center;
+        height    : 25px;
+        width     : 40px;
+        position  : relative;
+        margin    : 10px;
+
+        span {
+            display         : block;
+            height          : 15%;
+            width           : 100%;
+            position        : absolute;
+            top             : 50%;
+            left            : 50%;
+            transform       : translate(-50%, -50%);
+            background-color: #333;
+            z-index         : 5;
+        }
+
+        &::before,
+        &::after {
+            content         : "";
+            width           : 100%;
+            background-color: #333;
+            display         : block;
+            position        : absolute;
+            z-index         : 5;
+            left            : 50%;
+            height          : 15%;
+            transform       : translate(-50%, 0%);
+
+
+        }
+
+        &::before {
+            top: 0;
+
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+
+    .menu__body {
+        display: none;
+    }
+
+    .search__text {
+        height   : 70%;
+        font-size: calc(16/14*1rem);
+
+    }
+
+    .search__loopIcon {
+        height: 70%;
+        width : calc(52/14*1rem);
+
+
+    }
+}
+
+@media (min-width:23.4em) and (max-width:36em) {
+    .menu__icon {
+        height: 21px;
+        width : 35px;
+    }
+
+    .header__logo {
+        img {
+            height: 50%;
+        }
+    }
+
+    .search__text {
+        height   : 55%;
+        font-size: calc(16/14*1rem);
+
+    }
+
+    .search__loopIcon {
+        height: 55%;
+        width : calc(41/14*1rem);
+
+
+    }
+
+}
+
+////////main
+
+.contain {
+    max-width: calc(1159/14*1rem);
+    margin   : 0 auto;
+}
+
+.iwantedTO-BE {
+    padding         : 0 25px;
+    background-color: $colorYellow;
+    padding-top     : 4.45%; //////
+
+    &__contain {}
+
+    &__rows {
+        display        : flex;
+        column-gap     : 80px;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex          : 1 1 61%;
+        padding-bottom: 7.45%; //////
+
+    }
+
+    &__column_small {
+        flex-basis: 39%;
+    }
+
+    &__column_big {
+        padding-top: 8.3%;
+    }
+
+    &__title {
+        font-size     : calc(66.7/14*1rem);
+        font-family   : "Poppins", Helvetica, sans-serif;
+        font-weight   : 600;
+        color         : $colorWhite;
+        letter-spacing: calc(0.15/29.2*1em);
+        line-height   : 116%;
+        margin-bottom : calc(32/14*1rem);
+    }
+
+    &__text {
+
+        color: $colorWhite;
+
+
+        margin-bottom: calc(44/14*1rem);
+    }
+
+    &__dog {
+        max-width: 100%;
+
+        img {
+            width : 100%;
+            height: 100%;
+        }
+    }
+
+    &__buttons {
+        display   : flex;
+        column-gap: calc(34/14*1rem);
+    }
+
+    &__buttonOne {}
+
+    &__buttonTwo {}
+
+}
+
+.text {
+    font-size     : calc(29.2/14*1rem);
+    line-height   : 121%;
+    letter-spacing: calc(0.11/29.2*1em);
+}
+
+.button {
+    width         : calc(182/14*1rem);
+    height        : calc(69/14*1rem);
+    border-radius : 6px;
+    font-size     : calc(20.8/14*1rem);
+    color         : $colorWhite;
+    letter-spacing: (0.21/20.8*1em);
+    font-weight   : 600;
+
+    &_beresa {
+        background-color: $colorBeresa;
+    }
+
+    &_border {
+        background-color: transparent;
+        border          : 4px solid $colorWhite;
+    }
+
+    &_yellow {
+        background-color: $colorYellow;
+
+    }
+}
+
+
+
+@media (min-width:23.4375em)and(max-width:36em) {
+    .iwantedTO-BE__text {
+        text-indent: 35px;
+        padding    : 0 10px;
+        font-size  : calc(25.2/14*1rem);
+    }
+
+    .iwantedTO-BE__buttons {}
+
+    .button {
+        width    : calc((182/100*80)/14*1rem);
+        height   : calc((69/100*80)/14*1rem);
+        font-size: calc(18/14*1rem);
+
+    }
+}
+
+///2
+
+.vet-AnimalOne {
+    padding         : 0 25px;
+    background-color: $colorWhite;
+    padding-top     : 7.4%;
+    padding-bottom  : 9.05%;
+
+    &__contain {}
+
+    &__vet-Animal {}
+}
+
+
+
+.vet-Animal {
+    &__row {
+        display        : flex;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex: 1 1 50%;
+    }
+
+    &__column_big {
+        padding-top: 5.7%; /////
+
+    }
+
+    &__title {
+        font-size  : calc(50/14*1rem);
+        font-weight: 600;
+        line-height: 121%;
+    }
+
+    &__text {
+        padding-top: 5.7%;
+    }
+
+    &__button {
+        padding-top: 7.2%;
+    }
+
+
+    &__column_smoll {
+        display        : flex;
+        justify-content: flex-end;
+    }
+
+    &__img {
+        margin-right: 1px;
+
+        max-width : calc(506/14*1rem);
+        max-height: calc(480/14*1rem);
+        position  : relative;
+
+        img {
+            position: relative;
+            z-index : 2;
+
+            width : 100%;
+            height: 100%;
+        }
+
+        span {
+            position        : absolute;
+            top             : 50%;
+            left            : 50%;
+            transform       : translate(-50%, -50%);
+            background-color: #fff;
+            width           : calc(84/14*1rem);
+            height          : calc(84/14*1rem);
+            border-radius   : 50%;
+            z-index         : 4;
+
+
+            &::before {
+                content  : "";
+                position : absolute;
+                top      : 50%;
+                left     : 50%;
+                transform: translate(-50%, -50%);
+
+                border-left  : 26px solid $colorYellowDark;
+                border-top   : 15px solid transparent;
+                border-bottom: 15px solid transparent;
+                z-index      : 5;
+
+
+            }
+        }
+
+        &::before,
+        &::after {
+            content: "";
+        }
+
+        &::before {
+            position        : absolute;
+            z-index         : 3;
+            width           : 100%;
+            top             : 0;
+            left            : 0;
+            height          : 100%;
+            background-color: $colorYellowDark;
+            opacity         : 0.6;
+        }
+
+        &::after {
+            position        : absolute;
+            z-index         : 1;
+            background-color: $colorYellow;
+            width           : 50%;
+            padding-top     : 40.91666%;
+            bottom          : -7%;
+            left            : -7.5%;
+
+        }
+
+    }
+
+    &__column_right {
+        order     : 2;
+        text-align: end;
+    }
+
+    &__column_left {
+        justify-content: flex-start;
+
+        .vet-Animal__img {
+
+            &::after {
+                content         : "";
+                position        : absolute;
+                z-index         : 1;
+                background-color: $colorYellow;
+                width           : 50%;
+                padding-top     : 40.91666%;
+                bottom          : -7%;
+                left            : 57.5%;
+
+            }
+        }
+    }
+
+
+
+}
+
+@media (min-width:23.4em) and (max-width:36em) {}
+
+@media (max-width:70.626em) {
+    .iwantedTO-BE__rows {
+        flex-wrap      : wrap;
+        justify-content: center;
+    }
+
+    /////\\\\/\/\/\/\/\/\/\/\\/
+    .vet-Animal {
+        padding-bottom: 6.1%;
+
+        &__row {
+            flex-wrap      : wrap;
+            justify-content: center;
+
+
+        }
+
+        &__column {
+            flex: 1 1 100%;
+
+        }
+
+        &__column_big {
+            padding-bottom: 10%; /////
+
+        }
+
+        &__button {
+            text-align: center;
+        }
+
+        &__title {
+            text-align : center;
+            font-size  : calc(41/14*1rem);
+            font-weight: 600;
+            line-height: 121%;
+        }
+
+        &__img {
+            margin: 0 auto;
+        }
+
+        &__column_right {
+            .vet-Animal__text {
+                text-align: left;
+            }
+        }
+
+        &__column_smoll {
+            padding: 0 1.1rem;
+
+        }
+
+        &__column_left {
+
+            order: 2;
+        }
+    }
+
+
+    .iwantedTO-BE__dog {
+        max-width: 419px;
+        margin   : 0 auto;
+    }
+
+    .iwantedTO-BE__title {
+        font-size: calc(41/14*1rem);
+
+        text-align: center;
+    }
+
+    .iwantedTO-BE__buttons {
+        justify-content: center;
+    }
+
+    .iwantedTO-BE__text {
+        padding: 0 20px;
+    }
+
+    .text {
+        font-size: calc(25.2/14*1rem);
+    }
+}
+
+
+///2
+
+/// 3
+.test {
+    height          : 1117px;
+    background-color: $colorYellow;
+}
+
+/// 3
+/// 
+/// 4
+
+.vet-AnimalTwo {
+    padding         : 0 25px;
+    background-color: $colorWhite;
+    padding-top     : 7.4%;
+    padding-bottom  : 9.05%;
+
+    &__contain {}
+
+    &__vet-Animal {}
+}
+
+/// 4
+
+/// 5
+
+
+.veterinarianOne {
+    padding-top   : 5.1%;
+    padding-bottom: 2.85%;
+    padding-left  : 25px;
+    padding-right : 25px;
+
+    background-color: $colorYellow;
+
+    &__contain {}
+
+    &__veterinarian {}
+}
+
+.veterinarianTwo {
+    padding-top   : 5.1%;
+    padding-bottom: 2.85%;
+    padding-left  : 25px;
+    padding-right : 25px;
+    background-color: $colorYellow;
+
+    .veterinarianTwo__contain {
+    }
+    
+    .veterinarianTwo__veterinarian {
+    }
+}
+
+
+.veterinarian {
+    text-align: center;
+
+    &__title {
+        color        : $colorWhite;
+        font-size    : calc(75/14*1rem);
+        font-weight  : 600;
+        margin-bottom: 3.01%;
+    }
+
+    &__subtitle {
+        color        : $colorWhite;
+        font-size    : calc(33.3/14*1rem);
+        max-width    : 800px;
+        margin       : 0 auto;
+        line-height  : 120%;
+        margin-bottom: 8.0%;
+    }
+
+
+    &__gal-block {
+        margin-bottom: 46px;
+    }
+
+    &__gal {
+        position   : relative;
+        max-width  : 100%;
+        padding-top: 100%;
+
+        img {
+            position: absolute;
+            top     : 0;
+            left    : 0;
+            border  : 1px solid $colorWhite;
+            width   : 100%;
+            height  : 100%;
+
+        }
+    }
+
+    &__titleText {
+        font-size    : calc(37.3/14*1rem);
+        font-weight  : 600;
+        margin-bottom: 5%;
+
+
+
+        color: $colorWhite;
+    }
+
+    &__text {
+        color      : $colorWhite;
+        font-size  : calc(25/14*1rem);
+        line-height: 120%;
+
+
+    }
+
+    &__column {
+        padding-bottom: 8%;
+
+    }
+
+    @media (min-width:72.4375em) {
+        &__row {
+            display        : flex;
+            justify-content: space-between;
+            column-gap     : calc(65/14*1rem);
+
+        }
+
+        &__column {
+            flex          : 1 1 32%;
+            padding-bottom: 3.4%;
+
+        }
+
+        &__gal {
+            padding-top: 103%;
+        }
+    }
+
+   
+}
+
+
+
+
+
+@media (max-width:72.4374em) {
+    .veterinarianOne,.veterinarianTwo {
+        padding-top   : 5.1%;
+        padding-bottom: 0;
+
+    }
+}
+
+@media (max-width:36em) {
+    .veterinarianOne,.veterinarianTwo {
+
+        padding-top   : 50px;
+        padding-bottom: 0px;
+
+    }
+
+
+}
+/////./////
+@media (max-width:72.4374em) {
+
+    .veterinarian {
+        &__title {
+            font-size: calc(75/14*0.8rem);
+            margin-bottom: 6.01%;
+
+        }
+        &__subtitle {
+            font-size    : calc(33.3/14*0.85rem);
+        }
+        &__row {
+            flex-wrap      : wrap;
+            justify-content: center;
+        }
+
+        &__column {
+            padding-bottom: 12%;
+
+        }
+
+        &__gal-block {
+            margin-bottom: 30px;
+        }
+        &__text {
+            font-size  : calc(25/14*1.1rem);
+    
+    
+        }
+    }
+
+}
+@media (max-width:36em) {
+    .veterinarian{
+
+    }
+}
+@media (min-width:48em)and(max-width:72.4373em) {
+    .veterinarian{
+        &__column{
+            padding-bottom: 85px;
+    }
+    }
+}
+@media (min-width:36.01em)and(max-width:72.4374em) {
+    .veterinarian__gal {
+margin: 0 auto;
+        max-width  : 65%;
+        padding-top: 65%;
+
+       
+    }
+}
+
+/// 5
