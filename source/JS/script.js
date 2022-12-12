@@ -27,4 +27,13 @@ const isMobile = {
     }
 };
 
+document.body.addEventListener(`click`,function(e){
+    const burger = e.target.closest(`.menu__icon`);
+    if(!burger) return;
 
+    const burgerMenu = burger.closest(`.header__menu`);
+    burger.classList.toggle(`active`);
+    burgerMenu.classList.toggle(`active`);
+    document.body.classList.toggle('_lock');
+
+})
